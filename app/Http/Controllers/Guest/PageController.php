@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
-        $train = Train::whereDate('created_at', Carbon::today())->get();
-        return view('home', compact('train'));
+        $trains = Train::all();
+        $train = Train::whereDate('departure_time', Carbon::today())->get();
+        return view('home', compact('train','trains'));
     }
-    
+ 
 }

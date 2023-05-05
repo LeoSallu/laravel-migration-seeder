@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->timestamp('departure_time')->after('arrival_station');
-            $table->timestamp('arrival_time')->after('departure_time');
+            //
         });
     }
 

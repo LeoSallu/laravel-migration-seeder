@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('trains', function (Blueprint $table) {
-            //
-        });
+     Schema::table('trains',function (Blueprint $table){
+        $table->timestamp('departure_time')->nullable(true)->after('arrival_station');
+        $table->timestamp('arrival_time')->nullable(true)->after('departure_time');
+        });  
     }
-
     /**
      * Reverse the migrations.
      *
@@ -25,8 +25,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('trains', function (Blueprint $table) {
-            //
+        Schema::table('trains',function (Blueprint $table){
+            $table->dropColumn('departure_time');
+            $table->dropColumn('arrival_time');
         });
     }
 };
